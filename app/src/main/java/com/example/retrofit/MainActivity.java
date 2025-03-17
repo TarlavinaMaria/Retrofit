@@ -13,8 +13,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textViewFact;
-    Button buttonRefresh;
+    TextView textViewFact; // TextView для отображения факта
+    Button buttonRefresh; // Кнопка для обновления факта
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadRandomFact() {
-        ApiService apiService = RetrofitClient.getApiService();
-        Call<Fact> call = apiService.getRandomFact();
-        call.enqueue(new Callback<Fact>() {
+        ApiService apiService = RetrofitClient.getApiService(); // Получаем экземпляр ApiService
+        Call<Fact> call = apiService.getRandomFact(); // Вызываем метод getRandomFact(), чтобы получить случайный факт
+        call.enqueue(new Callback<Fact>() { // Ожидаем ответ от сервера
             @Override
             public void onResponse(Call<Fact> call, Response<Fact> response) {
-                if (response.isSuccessful() && response.body() != null) {
+                if (response.isSuccessful() && response.body() != null) { // Проверяем успешность ответа
                     Fact fact = response.body();
                     textViewFact.setText(fact.getText());
                 } else {

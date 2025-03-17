@@ -1,12 +1,13 @@
 package com.example.retrofit;
 
+// Класс Fact - модель для хранения данных о факте
 public class Fact {
-    private String id;
-    private String text;
-    private String source;
-    private String source_url;
-    private String language;
-    private String permalink;
+    private String id; // Уникальный идентификатор
+    private String text; // Текст
+    private String source; // Источник
+    private String source_url; // Ссылка на источник
+    private String language; // Язык, либо английский или немецкий
+    private String permalink; // Постоянная ссылка
 
     // Геттеры и сеттеры
     public String getId() {
